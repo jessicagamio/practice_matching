@@ -32,7 +32,7 @@ def name_match(aliases,given):
 
     else:
         if len(aliases) > 1:
-            
+
             for name in aliases:
                 name=name.split(" ")
                 first_name=name[0]
@@ -47,7 +47,8 @@ def name_match(aliases,given):
                             return True
                         else:
                             return False
-                    return True
+                    else:
+                        return True
         return False
 
 

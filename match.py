@@ -32,7 +32,16 @@ def name_match(aliases,given):
 
     else:
         if len(aliases) > 1:
+            alias_dict={}
             for name in aliases:
+                name=name.split(" ")
+                first_name=name[0]
+                mid_name=name[1:-1]
+                last_name=name[-1]
+
+                if first_name == giv_first and last_name == giv_last:
+                    if 
+
 
         return False
 

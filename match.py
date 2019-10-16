@@ -27,22 +27,27 @@ def name_match(aliases,given):
     giv_last = giv_name[-1]
 
     # if given name has a middle name assign giv_mid to middle name 
-    if len(giv_name) > 1:
+    if len(giv_name) > 2:
         giv_mid = giv_name[1:-1]
 
     else:
         if len(aliases) > 1:
-            alias_dict={}
+            
             for name in aliases:
                 name=name.split(" ")
                 first_name=name[0]
-                mid_name=name[1:-1]
                 last_name=name[-1]
 
+                if len(name)>2:
+                    mid_name=name[1:-1]
+
                 if first_name == giv_first and last_name == giv_last:
-                    if 
-
-
+                    if len(giv_name) > 2:
+                        if giv_mid == mid_name:
+                            return True
+                        else:
+                            return False
+                    return True
         return False
 
 

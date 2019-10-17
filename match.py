@@ -21,40 +21,50 @@ def name_match(aliases,given):
 
     # split given int a list by spaces in given string
     giv_name = given.split(" ")
-    
+    print(giv_name)
+
     # assign giv_first to first name and giv_last to last name
     giv_first = giv_name[0]
     giv_last = giv_name[-1]
 
     # if given name has a middle name assign giv_mid to middle name 
     if len(giv_name) > 2:
-        giv_mid = giv_name[1:-1]
+        giv_mid = giv_name[1:-1][0]
+    
+    print("given_name====>", giv_first, giv_last)
 
-    else:
-        if len(aliases) > 1:
+    if aliases:
+        # split each name in aliases. Assign first_name and last_name
+        for name in aliases:
+            name=name.split(" ")
+            first_name=name[0]
+            # print('first name---->', first_name)
+            last_name=name[-1]
+            # print('last name----->', last_name)
 
-            for name in aliases:
-                name=name.split(" ")
-                first_name=name[0]
-                last_name=name[-1]
+            # if middle name exissts assign mid_name
+            if len(name)>2:
+                mid_name=name[1:-1][0]
+                # print('middle name----->', mid_name)
+            else:
+                mid_name=None
 
-                if len(name)>2:
-                    mid_name=name[1:-1]
+            # if alias name matches given name
+            if first_name == giv_first and last_name == giv_last:
+                if len(giv_name)>2:
+                    # print("you should be here!!!!")
+                    if mid_name:
+                        return giv_mid == mid_name
+                    return True
 
-                if first_name == giv_first and last_name == giv_last:
-                    if len(giv_name) > 2:
-                        if giv_mid == mid_name:
-                            return True
-                        else:
-                            return False
-                    else:
-                        return True
         return False
 
+known_aliases = ['Alphonse Gabriel Capone', 'Alphonse Francis Capone']
+answer=name_match(known_aliases, 'Alphonse Gabriel Capone')
+print(answer)
 
-
-if __name__=="__main__":
-    from doctest import testmod
-    if testmod().failed == 0:
-        print(" **** Correct **** ")
+# if __name__=="__main__":
+#     from doctest import testmod
+#     if testmod().failed == 0:
+#         print(" **** Correct **** ")
 

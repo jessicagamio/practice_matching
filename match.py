@@ -28,7 +28,7 @@ def split_name(name):
 
 
 def name_match(aliases,given):
-    """return True if name matches alias.
+    """Return True if name matches alias.
 
 
         >>> known_aliases = ['Alphonse Gabriel Capone']
